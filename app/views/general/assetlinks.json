@@ -1,0 +1,12 @@
+[
+  {
+    "relation": ["delegate_permission/common.handle_all_urls"],
+    "target": {
+      "namespace": "android_app",
+      "package_name": "app.pilotdev.flyclub",
+      "sha256_cert_fingerprints": [
+        "F0:BB:6C:7A:EE:07:0F:29:73:92:98:36:FE:3A:C8:F4:F8:1D:D5:CE:30:E3:F5:BA:C7:BE:69:88:44:FC:C6:82"
+      ]
+    }
+  }
+]

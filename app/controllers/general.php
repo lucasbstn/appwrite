@@ -534,6 +534,50 @@ App::get('/humans.txt')
         $response->text($template->render(false));
     });
 
+App::get('/.well-known/assetlinks.json')
+    ->desc('Assetlinks file')
+    ->label('scope', 'public')
+    ->label('docs', false)
+    ->inject('response')
+    ->action(function ($response) {
+        /** @var Appwrite\Utopia\Response $response */
+
+        $response->json([
+            [
+             'relation' => ["delegate_permission/common.handle_all_urls"],
+             'target' => [
+                    "namespace" => "android_app",
+                    "package_name" => "app.pilotdev.flyclub",
+                    "sha256_cert_fingerprints" => [
+                        "F0:BB:6C:7A:EE:07:0F:29:73:92:98:36:FE:3A:C8:F4:F8:1D:D5:CE:30:E3:F5:BA:C7:BE:69:88:44:FC:C6:82"
+                    ]
+             ]
+            ],
+        ]);
+    });
+
+App::get('/.well-known/apple-app-site-association')
+    ->desc('Apple app site association file')
+    ->label('scope', 'public')
+    ->label('docs', false)
+    ->inject('response')
+    ->action(function ($response) {
+        /** @var Appwrite\Utopia\Response $response */
+
+        $response->json([
+             'applinks' => [
+                 'apps' => [],
+                 'details' => [
+                     'appID' => '8S44L77Q6Z.app.pilotdev.flyclub',
+                     'paths' => [
+                         '/invite'
+                     ]
+                ]
+             ],
+        ]);
+    });
+
+    
 App::get('/.well-known/acme-challenge')
     ->desc('SSL Verification')
     ->label('scope', 'public')
